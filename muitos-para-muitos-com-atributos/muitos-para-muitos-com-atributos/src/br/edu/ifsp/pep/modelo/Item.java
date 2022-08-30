@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -16,6 +17,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "item")
 public class Item implements Serializable {
+
+    @EmbeddedId
+    private ItemPK itemPK;
 
     @ManyToOne
     @JoinColumn(name = "produto_id", nullable = false)
@@ -30,6 +34,14 @@ public class Item implements Serializable {
 
     @Column(name = "preco", nullable = false, precision = 8, scale = 2)
     private BigDecimal preco;
+
+    public ItemPK getItemPK() {
+        return itemPK;
+    }
+
+    public void setItemPK(ItemPK itemPK) {
+        this.itemPK = itemPK;
+    }
 
     public Produto getProduto() {
         return produto;

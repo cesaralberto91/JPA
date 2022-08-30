@@ -16,20 +16,29 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "produto")
 public class Produto implements Serializable {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
-    
+
     @Column(name = "descricao", nullable = false, length = 45)
     private String descricao;
-    
+
     @Column(name = "quantidade", nullable = false)
     private int quantidade;
-    
+
     @Column(name = "preco", nullable = false, precision = 8, scale = 2)
     private BigDecimal preco;
+
+    public Produto() {
+    }
+
+    public Produto(String descricao, int quantidade, BigDecimal preco) {
+        this.descricao = descricao;
+        this.quantidade = quantidade;
+        this.preco = preco;
+    }
 
     public long getId() {
         return id;
@@ -62,7 +71,5 @@ public class Produto implements Serializable {
     public void setPreco(BigDecimal preco) {
         this.preco = preco;
     }
-    
-    
-    
+
 }

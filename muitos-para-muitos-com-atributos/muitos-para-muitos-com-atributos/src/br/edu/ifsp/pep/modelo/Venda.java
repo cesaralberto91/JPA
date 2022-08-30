@@ -23,7 +23,7 @@ public class Venda implements Serializable{
     @Column(name = "id")
     private long id;
     
-    @Column(name = "data")
+    @Column(name = "data", nullable = false)
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date data;
 
