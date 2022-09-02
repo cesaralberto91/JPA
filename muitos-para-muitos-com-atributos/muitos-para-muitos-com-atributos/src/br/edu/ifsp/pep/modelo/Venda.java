@@ -3,6 +3,7 @@ package br.edu.ifsp.pep.modelo;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,7 +30,7 @@ public class Venda implements Serializable {
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date data;
 
-    @OneToMany(mappedBy = "venda")
+    @OneToMany(mappedBy = "venda", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private List<Item> itens;
 
     public long getId() {
@@ -56,5 +57,4 @@ public class Venda implements Serializable {
         this.itens = itens;
     }
 
-    
 }
