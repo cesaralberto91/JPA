@@ -1,6 +1,6 @@
-package singletable.dao;
+package dao;
 
-import singletable.model.Pessoa;
+import model.Pessoa;
 
 /**
  *

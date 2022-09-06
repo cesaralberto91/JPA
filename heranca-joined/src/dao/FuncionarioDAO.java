@@ -1,6 +1,6 @@
-package singletable.dao;
+package dao;
 
-import singletable.model.Funcionario;
+import model.Funcionario;
 
 /**
  *
