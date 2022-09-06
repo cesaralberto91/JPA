@@ -13,7 +13,6 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "funcionario")
-@PrimaryKeyJoinColumn(name = "pessoa_id")
 public class Funcionario extends Pessoa {
     
     @Column(name = "salario", precision = 8, scale = 2, nullable = false)
