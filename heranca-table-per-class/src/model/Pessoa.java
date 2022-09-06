@@ -19,7 +19,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "pessoa")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class Pessoa implements Serializable {
+public abstract class Pessoa implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
