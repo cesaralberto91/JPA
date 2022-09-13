@@ -14,6 +14,29 @@ public class Principal {
     public static void main(String[] args) {
         
         PessoaDAO pessoaDAO = new PessoaDAO();
+        for (int i = 0; i < 10;) {
+            
+            Pessoa p = new Pessoa("Pessoa " + i, 
+                    new Date(2000+i, i, i), new BigDecimal(1000 * ++i));
+            
+            pessoaDAO.inserir(p);
+        }
+        
+        List<Pessoa> pessoas = pessoaDAO.buscarPorNome("Pessoa");
+        for (Pessoa pessoa : pessoas) {
+//            System.out.println(pessoa);
+            pessoaDAO.remover(pessoa);
+        }
+        
+//        pessoaDAO.remover(pessoas.get(0));
+        
+//        pessoaDAO.verificarEstadoDoCicloDeVida();
+        
+    }
+    
+    private static void testeNamedQueries() {
+        
+        PessoaDAO pessoaDAO = new PessoaDAO();
         
         for (int i = 0; i < 10;) {
             
