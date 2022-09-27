@@ -14,8 +14,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -29,11 +27,11 @@ public class Principal {
     private static LocacaoDAO locacaoDAO = new LocacaoDAO();
 
     public static void main(String[] args) {
-        adicionarVeiculos();
-        adicionarClientes();
+//        adicionarVeiculos();
+//        adicionarClientes();
         locarVeiculo();
-        exibirVeiculosDisponiveisParaLocacao();
-        devolverVeiculo();
+//        exibirVeiculosDisponiveisParaLocacao();
+//        devolverVeiculo();
     }
     
     private static void devolverVeiculo() {

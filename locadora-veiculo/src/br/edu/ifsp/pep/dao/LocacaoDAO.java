@@ -18,11 +18,11 @@ public class LocacaoDAO extends AbstractDAO<Locacao> {
 
         em.getTransaction().begin();
 
-        for (VeiculoLocado veiculoLocado : locacao.getVeiculosLocado()) {
-            Veiculo veiculo = veiculoLocado.getVeiculo();
-            veiculo.setLocado(true);
-            em.merge(veiculo);
-        }
+//        for (VeiculoLocado veiculoLocado : locacao.getVeiculosLocado()) {
+//            Veiculo veiculo = veiculoLocado.getVeiculo();
+//            veiculo.setLocado(true);
+//            em.merge(veiculo);
+//        }
 
         em.persist(locacao);
 
