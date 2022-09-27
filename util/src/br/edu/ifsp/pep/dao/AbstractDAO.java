@@ -21,7 +21,7 @@ public abstract class AbstractDAO<T> {
         return this.emf.createEntityManager();
     }
 
-    public void inserir(T entity) {
+    public void inserir(T entity) throws Exception {
         EntityManager em = getEntityManager();
 
         em.getTransaction().begin();
