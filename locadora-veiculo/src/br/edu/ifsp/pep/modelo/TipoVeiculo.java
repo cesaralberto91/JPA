@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
@@ -15,6 +17,8 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "tipo_veiculo")
+@NamedQueries(@NamedQuery(name = "TipoVeiculo.findByNome",
+        query = "SELECT t FROM TipoVeiculo t WHERE UPPER(t.nome) LIKE UPPER(:nome)"))
 public class TipoVeiculo implements Serializable {
 
     @Id
