@@ -17,8 +17,11 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "tipo_veiculo")
-@NamedQueries(@NamedQuery(name = "TipoVeiculo.findByNome",
-        query = "SELECT t FROM TipoVeiculo t WHERE UPPER(t.nome) LIKE UPPER(:nome)"))
+@NamedQueries({
+    @NamedQuery(name = "TipoVeiculo.findByNome",
+            query = "SELECT t FROM TipoVeiculo t WHERE UPPER(t.nome) LIKE UPPER(:nome)"),
+    @NamedQuery(name = "TipoVeiculo.findAll",
+            query = "SELECT t FROM TipoVeiculo t")})
 public class TipoVeiculo implements Serializable {
 
     @Id
@@ -62,6 +65,11 @@ public class TipoVeiculo implements Serializable {
 
     public void setValorDiaria(BigDecimal valorDiaria) {
         this.valorDiaria = valorDiaria;
+    }
+
+    @Override
+    public String toString() {
+        return nome;
     }
 
 }

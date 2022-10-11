@@ -9,6 +9,14 @@ import java.util.List;
  */
 public class TipoVeiculoDAO extends AbstractDAO<TipoVeiculo> {
 
+    public List<TipoVeiculo> findAll() {
+
+        return getEntityManager()
+                .createNamedQuery("TipoVeiculo.findAll", TipoVeiculo.class)
+                .getResultList();
+
+    }
+
     public List<TipoVeiculo> findByNome(String nome) {
 
         return getEntityManager()
