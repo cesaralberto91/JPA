@@ -317,6 +317,12 @@ public class VeiculoView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void atualizarTabela() {
+        
+        if (veiculos.isEmpty()) {
+            Mensagem.atencao("Não existem Veículos cadastrados.");
+            return;
+        }
+        
         DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
         modelo.setNumRows(0);
         for (Veiculo veiculo : veiculos) {
