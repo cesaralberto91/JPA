@@ -236,6 +236,6 @@ public class LocacaoView extends javax.swing.JDialog {
     private void carregarComboBoxVeiculos() {
         List<Veiculo> veiculos = this.veiculoDAO.buscarTodos();
         DefaultComboBoxModel modelo = (DefaultComboBoxModel) cbVeiculo.getModel();
-        modelo.addAll(veiculos);
+//        modelo.addAll(veiculos);
     }
 }

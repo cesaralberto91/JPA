@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorio_veiculos" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c427d6b9-36c7-4d5d-8cfa-237f5bcc4f69">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.xml"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="465"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="521"/>
+	<queryString language="EJBQL">
+		<![CDATA[Select v FROM Veiculo v]]>
+	</queryString>
+	<field name="cidade" class="java.lang.String">
+		<fieldDescription><![CDATA[cidade]]></fieldDescription>
+	</field>
+	<field name="tipo" class="br.edu.ifsp.pep.modelo.TipoVeiculo">
+		<fieldDescription><![CDATA[tipo]]></fieldDescription>
+	</field>
+	<field name="ano" class="java.lang.Integer">
+		<fieldDescription><![CDATA[ano]]></fieldDescription>
+	</field>
+	<field name="locado" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[locado]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.Long">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="modelo" class="java.lang.String">
+		<fieldDescription><![CDATA[modelo]]></fieldDescription>
+	</field>
+	<field name="placa" class="java.lang.String">
+		<fieldDescription><![CDATA[placa]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="82" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="30" uuid="3727fb50-e846-4730-a3f4-55c562ed23c2"/>
+				<box>
+					<bottomPen lineWidth="1.5" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório de Veículos]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy HH:mm:ss">
+				<reportElement x="405" y="52" width="150" height="30" uuid="4672394d-0b4b-4ca6-8353-70fed292daf1"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement x="15" y="0" width="100" height="30" uuid="d1592312-6cbb-40e7-8fb9-97a26cf13811">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cfa29800-6560-4347-b6ac-f5c6004af418"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Placa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="117" y="0" width="100" height="30" uuid="12beaad2-8191-48b6-ba6b-e5b8ca691f22">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="db54c2ec-72c6-4c07-b2b1-26c1b34b900c"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Modelo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="224" y="0" width="100" height="30" uuid="5835ed82-779a-4713-b958-ea3ef8c2f02c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="281ec152-f0f1-44c0-8281-38122be9f49a"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cidade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="0" width="100" height="30" uuid="8c2e36b6-0ad9-4fb1-b97c-f0d5f0859c7d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cbcf57e2-d747-41be-b32f-e0d380867b1f"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Locado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="448" y="0" width="100" height="30" uuid="d2f06c8a-6aa0-4183-8282-ba1d41242c02">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2f8a7a10-72f1-4000-94c1-845bdca1b4de"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="34" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="92242d0e-35c1-4183-91d3-379473e16298">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cfa29800-6560-4347-b6ac-f5c6004af418"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{placa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="117" y="0" width="100" height="20" uuid="babde3c2-f3f1-48c2-8496-a6fd81f3838d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="db54c2ec-72c6-4c07-b2b1-26c1b34b900c"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{modelo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="224" y="0" width="100" height="20" uuid="58bd2865-1ad2-486d-93cb-d620e13bb160">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="281ec152-f0f1-44c0-8281-38122be9f49a"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="329" y="0" width="100" height="20" uuid="1b6c90ab-7607-4ebc-93da-9749728282bd">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cbcf57e2-d747-41be-b32f-e0d380867b1f"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{locado} ? "SIM" : "NÃO"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="448" y="4" width="100" height="30" uuid="ea9f3968-08f5-4071-9a3b-0a4d8e71068e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2f8a7a10-72f1-4000-94c1-845bdca1b4de"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{tipo}.getId()]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="50" splitType="Stretch">
+			<textField>
+				<reportElement x="520" y="6" width="30" height="30" uuid="84fc29a4-930a-4314-a73b-1a633df7ca0b"/>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="306" y="6" width="214" height="30" uuid="bd28040d-16b2-4043-8e3d-9302620b625a"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Quantidade de Veículos: ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="2d910c14-904b-4bab-9aa4-7355cb994c9f"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

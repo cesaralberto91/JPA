@@ -17,7 +17,7 @@ public abstract class AbstractDAO<T> {
                 .createEntityManagerFactory("conexaoPU");
     }
 
-    protected EntityManager getEntityManager() {
+    public EntityManager getEntityManager() {
         return this.emf.createEntityManager();
     }
 
