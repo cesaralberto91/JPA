@@ -1,8 +1,14 @@
 package br.edu.ifsp.pep.relatorio;
 
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.persistence.EntityManager;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
@@ -64,11 +70,17 @@ public class Relatorio {
             InputStream relatorioCompilado = Relatorio.class
                     .getResourceAsStream
                 ("/br/edu/ifsp/pep/relatorio/" + fileJasper);
+            
+            BufferedImage logo = ImageIO.read(Relatorio.class
+                    .getResourceAsStream("/br/edu/ifsp/pep/relatorio/img/logo-ifsp.png"));
+            
+            HashMap<String, Object> parametros = new HashMap<>();
+            parametros.put("logo", logo);
 
             //preenche o relatório com os dados dos veículos
             JasperPrint jasperPrint = JasperFillManager.fillReport(
                     relatorioCompilado,
-                    null,
+                    parametros,
                     dataSource);
 
             //exibe o relatório
@@ -78,6 +90,9 @@ public class Relatorio {
 
         } catch (JRException ex) {
             ex.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            System.out.println("Logo não encontrado.");
         }
     }
     
