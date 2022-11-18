@@ -1,5 +1,6 @@
 package br.edu.ifsp.pep.dao;
 
+import br.edu.ifsp.pep.modelo.TipoVeiculo;
 import br.edu.ifsp.pep.modelo.Veiculo;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -15,13 +16,34 @@ public class VeiculoDAO extends AbstractDAO<Veiculo> {
                 .createNamedQuery("Veiculo.buscarTodos", Veiculo.class)
                 .getResultList();
     }
-    
+
     public List<Veiculo> buscarVeiculosDisponiveisParaLocacao() {
         return getEntityManager()
                 .createNamedQuery("Veiculo.buscarDisponiveisParaLocacao", Veiculo.class)
                 .getResultList();
     }
-    
+
+    public List<Veiculo> buscarPorTipoDeVeiculo(TipoVeiculo tipoVeiculo) {
+        return getEntityManager()
+                .createNamedQuery("Veiculo.buscarPorTipoDeVeiculo", Veiculo.class)
+                .setParameter("idTipoVeiculo", tipoVeiculo.getId())
+                .getResultList();
+    }
+
+    public List<Veiculo> buscarPorModelo(String modelo) {
+        return getEntityManager()
+                .createNamedQuery("Veiculo.buscarPorModelo", Veiculo.class)
+                .setParameter("modelo", "%" + modelo + "%")
+                .getResultList();
+    }
+
+    public List<Veiculo> buscarPorModeloETipoVeiculo(String modelo, TipoVeiculo tipoVeiculo) {
+        return getEntityManager()
+                .createNamedQuery("Veiculo.buscarPorModeloETipoVeiculo", Veiculo.class)
+                .setParameter("modelo", "%" + modelo + "%")
+                .setParameter("idTipoVeiculo", tipoVeiculo.getId())
+                .getResultList();
+    }
 
     @Override
     public void inserir(Veiculo veiculo) throws Exception {

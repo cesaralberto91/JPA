@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorio_veiculos" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c427d6b9-36c7-4d5d-8cfa-237f5bcc4f69">
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.xml"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="465"/>
 	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="521"/>
 	<parameter name="logo" class="java.awt.Image"/>
@@ -45,7 +45,7 @@
 				<text><![CDATA[Relatório de Veículos]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy HH:mm:ss">
-				<reportElement x="405" y="52" width="150" height="30" uuid="4672394d-0b4b-4ca6-8353-70fed292daf1"/>
+				<reportElement x="400" y="50" width="150" height="20" uuid="4672394d-0b4b-4ca6-8353-70fed292daf1"/>
 				<textElement textAlignment="Right">
 					<font size="12"/>
 				</textElement>

@@ -1,7 +1,6 @@
 package br.edu.ifsp.pep.modelo;
 
 import java.io.Serializable;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,16 +20,23 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(name = "veiculo", uniqueConstraints = {
     @UniqueConstraint(
-            name = "unique_cidade_placa", 
+            name = "unique_cidade_placa",
             columnNames = {"cidade", "placa"})
 })
 @NamedQueries(value = {
-        @NamedQuery(name = "Veiculo.buscarTodos", 
-                query="SELECT v FROM Veiculo v"),
-    @NamedQuery(name = "Veiculo.buscarDisponiveisParaLocacao", 
-                query="SELECT v FROM Veiculo v WHERE v.locado = false"),
-        @NamedQuery(name = "Veiculo.buscarPorPlacaECidade",
-                query = "SELECT v FROM Veiculo v WHERE v.cidade = :cidade AND v.placa = :placa")
+    @NamedQuery(name = "Veiculo.buscarTodos",
+            query = "SELECT v FROM Veiculo v"),
+    @NamedQuery(name = "Veiculo.buscarDisponiveisParaLocacao",
+            query = "SELECT v FROM Veiculo v WHERE v.locado = false"),
+    @NamedQuery(name = "Veiculo.buscarPorPlacaECidade",
+            query = "SELECT v FROM Veiculo v WHERE v.cidade = :cidade AND v.placa = :placa"),
+    @NamedQuery(name = "Veiculo.buscarPorTipoDeVeiculo",
+            query = "SELECT v FROM Veiculo v WHERE v.tipo.id = :idTipoVeiculo"),
+    @NamedQuery(name = "Veiculo.buscarPorModelo",
+            query = "SELECT v FROM Veiculo v WHERE UPPER(v.modelo) LIKE UPPER(:modelo)"),
+    @NamedQuery(name = "Veiculo.buscarPorModeloETipoVeiculo",
+            query = "SELECT v FROM Veiculo v WHERE UPPER(v.modelo) LIKE UPPER(:modelo) AND v.tipo.id = :idTipoVeiculo")
+
 })
 public class Veiculo implements Serializable {
 
@@ -47,13 +53,13 @@ public class Veiculo implements Serializable {
 
     @Column(name = "modelo", nullable = false, length = 25)
     private String modelo;
-    
+
     @Column(name = "ano", nullable = false)
     private int ano;
-    
+
     @Column(name = "locado", nullable = false)
     private boolean locado;
-    
+
     @ManyToOne
     @JoinColumn(name = "tipo_veiculo_id", nullable = false)
     private TipoVeiculo tipo;
@@ -70,8 +76,6 @@ public class Veiculo implements Serializable {
         this.tipo = tipo;
         this.locado = false;
     }
-    
-    
 
     public long getId() {
         return id;
@@ -134,5 +138,4 @@ public class Veiculo implements Serializable {
         return "Veiculo{" + "id=" + id + ", placa=" + placa + ", cidade=" + cidade + ", modelo=" + modelo + ", ano=" + ano + ", locado=" + locado + ", tipo=" + tipo + '}';
     }
 
-    
 }
