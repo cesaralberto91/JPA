@@ -69,11 +69,11 @@ public class Relatorio {
             InputStream relatorioCompilado = Relatorio.class
                     .getResourceAsStream("/br/edu/ifsp/pep/relatorio/" + fileJasper);
             
-            BufferedImage logo = ImageIO.read(Relatorio.class
-                    .getResourceAsStream("/br/edu/ifsp/pep/relatorio/img/logo-ifsp.png"));
-            
-            HashMap<String, Object> parametros = new HashMap<>();
-            parametros.put("logo", logo);
+//            BufferedImage logo = ImageIO.read(Relatorio.class
+//                    .getResourceAsStream("/br/edu/ifsp/pep/relatorio/img/logo-ifsp.png"));
+//            
+//            HashMap<String, Object> parametros = new HashMap<>();
+//            parametros.put("logo", logo);
 
             //preenche o relatório com os dados dos veículos
             JasperPrint jasperPrint = JasperFillManager.fillReport(
@@ -89,9 +89,9 @@ public class Relatorio {
 
         } catch (JRException ex) {
             ex.printStackTrace();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            System.out.println("Logo não encontrado.");
+//        } catch (IOException ex) {
+//            ex.printStackTrace();
+//            System.out.println("Logo não encontrado.");
         }
         return null;
     }
